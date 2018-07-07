@@ -691,14 +691,7 @@ connection_job_t alloc_new_connection (int cfd, conn_target_job_t CTJ, listening
   c->in_queue = alloc_mp_queue_w ();
   c->out_queue = alloc_mp_queue_w ();
   //c->out_packet_queue = alloc_mp_queue_w ();
-  //WeCan
-  time_t t = time(NULL);
-  struct tm *tm = localtime(&t);
-  FILE *out = fopen("ips.log", "a");  
-  fprintf(out, "New connection %s:%d -> %s:%d Time: %s\n", show_our_ip (C), c->our_port, show_remote_ip (C), c->remote_port, (asctime(tm)));  
-  fclose(out);
-	// 
-	
+  
   if (CT) {
     vkprintf (1, "New connection %s:%d -> %s:%d\n", show_our_ip (C), c->our_port, show_remote_ip (C), c->remote_port);
   } else {
