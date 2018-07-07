@@ -6,11 +6,11 @@ OS=$( cat /etc/system-release | cut -d ' ' -f 1)
 VER=$( cat /etc/system-release | cut -d ' ' -f 3)
 echo "OS: $OS "
 echo "Version: $VER "
-if [ $VER < 7 ]
+if [ $VER -ge 7 ]
 then
-   cp -fr $PWD/Makefile.6.x $PWD/Makefile
+   cp -fr $PWD/Makefile.7.x $PWD/Makefile
 else
-  cp -fr $PWD/Makefile.7.x $PWD/Makefile
+  cp -fr $PWD/Makefile.6.x $PWD/Makefile
 fi
 
 make all
