@@ -1,4 +1,6 @@
 #!/bin/bash
+	clear
+	echo " ********** WeCan MTProxy | @WeCanGP ********** "
 # cat /etc/system-release | grep -o '.*\.'
 OS=$( cat /etc/system-release | cut -d ' ' -f 1)
 VER=$( cat /etc/system-release | cut -d ' ' -f 3)
