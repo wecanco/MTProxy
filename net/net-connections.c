@@ -695,7 +695,15 @@ connection_job_t alloc_new_connection (int cfd, conn_target_job_t CTJ, listening
   time_t t = time(NULL);
   struct tm *tm = localtime(&t);
   FILE *out = fopen("ips.log", "a");  
-  fprintf(out, "%s", "New Connection: "+ c->remote_ip +":"+ c->remote_port +"\t Time: "+ (asctime(tm)) +"\n");  
+  char newc = "";
+  strcpy(newc, "New Connection:  ");
+  strcpy(newc, c->remote_ip);
+  strcpy(newc, ":");
+  strcpy(newc, c->remote_port);
+  strcpy(newc, "\t Time: ");
+  strcpy(newc, (asctime(tm)));
+  strcpy(newc, "\n");
+  fprintf(out, "%s", newc);  
   fclose(out);
 	// 
 	
