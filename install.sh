@@ -4,12 +4,13 @@
 # cat /etc/system-release | grep -o '.*\.'
 OS=$( cat /etc/system-release | cut -d ' ' -f 1)
 VER=$( cat /etc/system-release | cut -d ' ' -f 3)
-echo "OS Version: $VER \n"
+echo "OS: $OS "
+echo "Version: $VER "
 if [ $VER < 7 ]
 then
-   cp -fr Makefile.6.x Makefile
+   cp -fr $PWD/Makefile.6.x $PWD/Makefile
 else
-  cp -fr Makefile.7.x Makefile
+  cp -fr $PWD/Makefile.7.x $PWD/Makefile
 fi
 
 make all
